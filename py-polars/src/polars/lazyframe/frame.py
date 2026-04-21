@@ -1359,16 +1359,23 @@ naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
             .. deprecated:: 1.30.0
                 Use the `engine` parameter instead.
         engine
-            Select the engine used to process the query, optional.
-            At the moment, if set to `"auto"` (default), the query
-            is run using the polars in-memory engine. Polars will also
-            attempt to use the engine set by the `POLARS_ENGINE_AFFINITY`
-            environment variable. If it cannot run the query using the
-            selected engine, the query is run using the polars in-memory
-            engine. If set to `"gpu"`, the GPU engine is used. Fine-grained
-            control over the GPU engine, for example which device to use
-            on a system with multiple devices, is possible by providing a
-            :class:`~.GPUEngine` object with configuration options.
+            Select the engine used to process the query (default ``"auto"``):
+
+            * ``"auto"``: use the engine set by
+              :meth:`Config.set_engine_affinity <polars.Config.set_engine_affinity>`
+              or the ``POLARS_ENGINE_AFFINITY`` environment variable, falling
+              back to ``"in-memory"`` if unset.
+            * ``"in-memory"``: use the in-memory engine, this is the default engine.
+            * ``"streaming"``: use the streaming engine, which processes
+              queries in batches, reducing memory pressure and often
+              outperforming the in-memory engine. This will soon become
+              the default engine of Polars.
+            * ``"gpu"``: use the CUDA GPU engine (requires an Nvidia GPU and
+              ``cudf-polars``). Pass a :class:`~.GPUEngine` object for
+              fine-grained control (e.g. device selection on multi-GPU systems).
+
+            If the selected engine cannot run the query, Polars falls back to
+            the in-memory engine.
 
             .. note::
                GPU mode is considered **unstable**. Not all queries will run
@@ -1565,16 +1572,23 @@ naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
             .. deprecated:: 1.30.0
                 Use the `optimizations` parameters.
         engine
-            Select the engine used to process the query, optional.
-            At the moment, if set to `"auto"` (default), the query
-            is run using the polars in-memory engine. Polars will also
-            attempt to use the engine set by the `POLARS_ENGINE_AFFINITY`
-            environment variable. If it cannot run the query using the
-            selected engine, the query is run using the polars in-memory
-            engine. If set to `"gpu"`, the GPU engine is used. Fine-grained
-            control over the GPU engine, for example which device to use
-            on a system with multiple devices, is possible by providing a
-            :class:`~.GPUEngine` object with configuration options.
+            Select the engine used to process the query (default ``"auto"``):
+
+            * ``"auto"``: use the engine set by
+              :meth:`Config.set_engine_affinity <polars.Config.set_engine_affinity>`
+              or the ``POLARS_ENGINE_AFFINITY`` environment variable, falling
+              back to ``"in-memory"`` if unset.
+            * ``"in-memory"``: use the in-memory engine, this is the default engine.
+            * ``"streaming"``: use the streaming engine, which processes
+              queries in batches, reducing memory pressure and often
+              outperforming the in-memory engine. This will soon become
+              the default engine of Polars.
+            * ``"gpu"``: use the CUDA GPU engine (requires an Nvidia GPU and
+              ``cudf-polars``). Pass a :class:`~.GPUEngine` object for
+              fine-grained control (e.g. device selection on multi-GPU systems).
+
+            If the selected engine cannot run the query, Polars falls back to
+            the in-memory engine.
 
             .. note::
                GPU mode is considered **unstable**. Not all queries will run
@@ -2112,16 +2126,23 @@ naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
         figsize
             matplotlib figsize of the profiling plot
         engine
-            Select the engine used to process the query, optional.
-            At the moment, if set to `"auto"` (default), the query
-            is run using the polars in-memory engine. Polars will also
-            attempt to use the engine set by the `POLARS_ENGINE_AFFINITY`
-            environment variable. If it cannot run the query using the
-            selected engine, the query is run using the polars in-memory
-            engine. If set to `"gpu"`, the GPU engine is used. Fine-grained
-            control over the GPU engine, for example which device to use
-            on a system with multiple devices, is possible by providing a
-            :class:`~.GPUEngine` object with configuration options.
+            Select the engine used to process the query (default ``"auto"``):
+
+            * ``"auto"``: use the engine set by
+              :meth:`Config.set_engine_affinity <polars.Config.set_engine_affinity>`
+              or the ``POLARS_ENGINE_AFFINITY`` environment variable, falling
+              back to ``"in-memory"`` if unset.
+            * ``"in-memory"``: use the in-memory engine, this is the default engine.
+            * ``"streaming"``: use the streaming engine, which processes
+              queries in batches, reducing memory pressure and often
+              outperforming the in-memory engine. This will soon become
+              the default engine of Polars.
+            * ``"gpu"``: use the CUDA GPU engine (requires an Nvidia GPU and
+              ``cudf-polars``). Pass a :class:`~.GPUEngine` object for
+              fine-grained control (e.g. device selection on multi-GPU systems).
+
+            If the selected engine cannot run the query, Polars falls back to
+            the in-memory engine.
 
             .. note::
                GPU mode is considered **unstable**. Not all queries will run
@@ -2355,16 +2376,23 @@ naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
             .. deprecated:: 1.30.0
                 Use the `optimizations` parameters.
         engine
-            Select the engine used to process the query, optional.
-            At the moment, if set to `"auto"` (default), the query
-            is run using the polars in-memory engine. Polars will also
-            attempt to use the engine set by the `POLARS_ENGINE_AFFINITY`
-            environment variable. If it cannot run the query using the
-            selected engine, the query is run using the polars in-memory
-            engine. If set to `"gpu"`, the GPU engine is used. Fine-grained
-            control over the GPU engine, for example which device to use
-            on a system with multiple devices, is possible by providing a
-            :class:`~.GPUEngine` object with configuration options.
+            Select the engine used to process the query (default ``"auto"``):
+
+            * ``"auto"``: use the engine set by
+              :meth:`Config.set_engine_affinity <polars.Config.set_engine_affinity>`
+              or the ``POLARS_ENGINE_AFFINITY`` environment variable, falling
+              back to ``"in-memory"`` if unset.
+            * ``"in-memory"``: use the in-memory engine, this is the default engine.
+            * ``"streaming"``: use the streaming engine, which processes
+              queries in batches, reducing memory pressure and often
+              outperforming the in-memory engine. This will soon become
+              the default engine of Polars.
+            * ``"gpu"``: use the CUDA GPU engine (requires an Nvidia GPU and
+              ``cudf-polars``). Pass a :class:`~.GPUEngine` object for
+              fine-grained control (e.g. device selection on multi-GPU systems).
+
+            If the selected engine cannot run the query, Polars falls back to
+            the in-memory engine.
 
             .. note::
                GPU mode is considered **unstable**. Not all queries will run
@@ -2554,13 +2582,24 @@ naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
         gevent
             Return wrapper to `gevent.event.AsyncResult` instead of Awaitable
         engine
-            Select the engine used to process the query, optional.
-            At the moment, if set to `"auto"` (default), the query
-            is run using the polars in-memory engine. Polars will also
-            attempt to use the engine set by the `POLARS_ENGINE_AFFINITY`
-            environment variable. If it cannot run the query using the
-            selected engine, the query is run using the polars in-memory
-            engine.
+            Select the engine used to process the query (default ``"auto"``):
+
+            * ``"auto"``: use the engine set by
+              :meth:`Config.set_engine_affinity <polars.Config.set_engine_affinity>`
+              or the ``POLARS_ENGINE_AFFINITY`` environment variable, falling
+              back to ``"in-memory"`` if unset.
+            * ``"in-memory"``: use the in-memory engine, this is the default engine.
+            * ``"streaming"``: use the streaming engine, which processes
+              queries in batches, reducing memory pressure and often
+              outperforming the in-memory engine. This will soon become
+              the default engine of Polars.
+            * ``"gpu"``: use the CUDA GPU engine (requires an Nvidia GPU and
+              ``cudf-polars``). Pass a :class:`~.GPUEngine` object for
+              fine-grained control (e.g. device selection on multi-GPU
+              systems).
+
+            If the selected engine cannot run the query, Polars falls back to
+            the in-memory engine.
 
             .. note::
                The GPU engine does not support async, or running in the
@@ -2859,13 +2898,23 @@ naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
                 This functionality is considered **unstable**. It may be changed at any
                 point without it being considered a breaking change.
         engine
-            Select the engine used to process the query, optional.
-            At the moment, if set to `"auto"` (default), the query is run
-            using the polars streaming engine. Polars will also
-            attempt to use the engine set by the `POLARS_ENGINE_AFFINITY`
-            environment variable. If it cannot run the query using the
-            selected engine, the query is run using the polars streaming
-            engine.
+            Select the engine used to process the query (default ``"auto"``):
+
+            * ``"auto"``: use the engine set by
+              :meth:`Config.set_engine_affinity <polars.Config.set_engine_affinity>`
+              or the ``POLARS_ENGINE_AFFINITY`` environment variable, falling
+              back to ``"streaming"`` if unset.
+            * ``"in-memory"``: use the in-memory engine before writing, this is the default engine.
+            * ``"streaming"``: use the streaming engine, which processes
+              queries in batches, reducing memory pressure and often
+              outperforming the in-memory engine. This will soon become
+              the default engine of Polars.
+            * ``"gpu"``: use the CUDA GPU engine (requires an Nvidia GPU and
+              ``cudf-polars``). Pass a :class:`~.GPUEngine` object for
+              fine-grained control.
+
+            If the selected engine cannot run the query, Polars falls back to
+            the streaming engine.
         optimizations
             The optimization passes done during query optimization.
 
@@ -3063,13 +3112,23 @@ naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
             Keyword arguments which are required to `MERGE` a Delta lake Table.
             See a list of supported merge options `here <https://delta-io.github.io/delta-rs/api/delta_table/#deltalake.DeltaTable.merge>`__.
         engine
-            Select the engine used to process the query, optional.
-            At the moment, if set to `"auto"` (default), the query is run
-            using the polars streaming engine. Polars will also
-            attempt to use the engine set by the `POLARS_ENGINE_AFFINITY`
-            environment variable. If it cannot run the query using the
-            selected engine, the query is run using the polars streaming
-            engine.
+            Select the engine used to process the query (default ``"auto"``):
+
+            * ``"auto"``: use the engine set by
+              :meth:`Config.set_engine_affinity <polars.Config.set_engine_affinity>`
+              or the ``POLARS_ENGINE_AFFINITY`` environment variable, falling
+              back to ``"streaming"`` if unset.
+            * ``"in-memory"``: use the in-memory engine before writing, this is the default engine.
+            * ``"streaming"``: use the streaming engine, which processes
+              queries in batches, reducing memory pressure and often
+              outperforming the in-memory engine. This will soon become
+              the default engine of Polars.
+            * ``"gpu"``: use the CUDA GPU engine (requires an Nvidia GPU and
+              ``cudf-polars``). Pass a :class:`~.GPUEngine` object for
+              fine-grained control.
+
+            If the selected engine cannot run the query, Polars falls back to
+            the streaming engine.
         optimizations
             The optimization passes done during query optimization.
 
@@ -3482,13 +3541,21 @@ naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
                 This functionality is considered **unstable**. It may be changed at any
                 point without it being considered a breaking change.
         engine
-            Select the engine used to process the query, optional.
-            At the moment, if set to `"auto"` (default), the query is run
-            using the polars streaming engine. Polars will also
-            attempt to use the engine set by the `POLARS_ENGINE_AFFINITY`
-            environment variable. If it cannot run the query using the
-            selected engine, the query is run using the polars streaming
-            engine.
+            Select the engine used to process the query (default ``"auto"``):
+
+            * ``"auto"``: use the engine set by
+              :meth:`Config.set_engine_affinity <polars.Config.set_engine_affinity>`
+              or the ``POLARS_ENGINE_AFFINITY`` environment variable, falling
+              back to ``"streaming"`` if unset.
+            * ``"in-memory"``: use the in-memory engine before writing, this is the default engine.
+            * ``"streaming"``: use the streaming engine, which processes
+              queries in batches, reducing memory pressure and often
+              outperforming the in-memory engine. This will soon become
+              the default engine of Polars.
+            * ``"gpu"``: not currently supported for this sink.
+
+            If the selected engine cannot run the query, Polars falls back to
+            the streaming engine.
 
             .. note::
                The GPU engine is currently not supported.
@@ -3830,13 +3897,23 @@ naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
                 This functionality is considered **unstable**. It may be changed at any
                 point without it being considered a breaking change.
         engine
-            Select the engine used to process the query, optional.
-            At the moment, if set to `"auto"` (default), the query is run
-            using the polars streaming engine. Polars will also
-            attempt to use the engine set by the `POLARS_ENGINE_AFFINITY`
-            environment variable. If it cannot run the query using the
-            selected engine, the query is run using the polars streaming
-            engine.
+            Select the engine used to process the query (default ``"auto"``):
+
+            * ``"auto"``: use the engine set by
+              :meth:`Config.set_engine_affinity <polars.Config.set_engine_affinity>`
+              or the ``POLARS_ENGINE_AFFINITY`` environment variable, falling
+              back to ``"streaming"`` if unset.
+            * ``"in-memory"``: use the in-memory engine before writing, this is the default engine.
+            * ``"streaming"``: use the streaming engine, which processes
+              queries in batches, reducing memory pressure and often
+              outperforming the in-memory engine. This will soon become
+              the default engine of Polars.
+            * ``"gpu"``: use the CUDA GPU engine (requires an Nvidia GPU and
+              ``cudf-polars``). Pass a :class:`~.GPUEngine` object for
+              fine-grained control.
+
+            If the selected engine cannot run the query, Polars falls back to
+            the streaming engine.
         optimizations
             The optimization passes done during query optimization.
 
@@ -4086,13 +4163,23 @@ naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
                 This functionality is considered **unstable**. It may be changed
                 at any point without it being considered a breaking change.
         engine
-            Select the engine used to process the query, optional.
-            At the moment, if set to `"auto"` (default), the query is run
-            using the polars streaming engine. Polars will also
-            attempt to use the engine set by the `POLARS_ENGINE_AFFINITY`
-            environment variable. If it cannot run the query using the
-            selected engine, the query is run using the polars streaming
-            engine.
+            Select the engine used to process the query (default ``"auto"``):
+
+            * ``"auto"``: use the engine set by
+              :meth:`Config.set_engine_affinity <polars.Config.set_engine_affinity>`
+              or the ``POLARS_ENGINE_AFFINITY`` environment variable, falling
+              back to ``"streaming"`` if unset.
+            * ``"in-memory"``: use the in-memory engine before writing, this is the default engine.
+            * ``"streaming"``: use the streaming engine, which processes
+              queries in batches, reducing memory pressure and often
+              outperforming the in-memory engine. This will soon become
+              the default engine of Polars.
+            * ``"gpu"``: use the CUDA GPU engine (requires an Nvidia GPU and
+              ``cudf-polars``). Pass a :class:`~.GPUEngine` object for
+              fine-grained control.
+
+            If the selected engine cannot run the query, Polars falls back to
+            the streaming engine.
         optimizations
             The optimization passes done during query optimization.
 
@@ -4234,13 +4321,23 @@ naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
         lazy: bool
             Wait to start execution until `collect` is called.
         engine
-            Select the engine used to process the query, optional.
-            At the moment, if set to `"auto"` (default), the query is run
-            using the polars streaming engine. Polars will also
-            attempt to use the engine set by the `POLARS_ENGINE_AFFINITY`
-            environment variable. If it cannot run the query using the
-            selected engine, the query is run using the polars streaming
-            engine.
+            Select the engine used to process the query (default ``"auto"``):
+
+            * ``"auto"``: use the engine set by
+              :meth:`Config.set_engine_affinity <polars.Config.set_engine_affinity>`
+              or the ``POLARS_ENGINE_AFFINITY`` environment variable, falling
+              back to ``"streaming"`` if unset.
+            * ``"in-memory"``: use the in-memory engine before writing, this is the default engine.
+            * ``"streaming"``: use the streaming engine, which processes
+              queries in batches, reducing memory pressure and often
+              outperforming the in-memory engine. This will soon become
+              the default engine of Polars.
+            * ``"gpu"``: use the CUDA GPU engine (requires an Nvidia GPU and
+              ``cudf-polars``). Pass a :class:`~.GPUEngine` object for
+              fine-grained control.
+
+            If the selected engine cannot run the query, Polars falls back to
+            the streaming engine.
         optimizations
             The optimization passes done during query optimization.
 
@@ -4305,13 +4402,23 @@ naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
         lazy
             Start the query when first requesting a batch.
         engine
-            Select the engine used to process the query, optional.
-            At the moment, if set to `"auto"` (default), the query is run
-            using the polars streaming engine. Polars will also
-            attempt to use the engine set by the `POLARS_ENGINE_AFFINITY`
-            environment variable. If it cannot run the query using the
-            selected engine, the query is run using the polars streaming
-            engine.
+            Select the engine used to process the query (default ``"auto"``):
+
+            * ``"auto"``: use the engine set by
+              :meth:`Config.set_engine_affinity <polars.Config.set_engine_affinity>`
+              or the ``POLARS_ENGINE_AFFINITY`` environment variable, falling
+              back to ``"streaming"`` if unset.
+            * ``"in-memory"``: use the in-memory engine before writing, this is the default engine.
+            * ``"streaming"``: use the streaming engine, which processes
+              queries in batches, reducing memory pressure and often
+              outperforming the in-memory engine. This will soon become
+              the default engine of Polars.
+            * ``"gpu"``: use the CUDA GPU engine (requires an Nvidia GPU and
+              ``cudf-polars``). Pass a :class:`~.GPUEngine` object for
+              fine-grained control.
+
+            If the selected engine cannot run the query, Polars falls back to
+            the streaming engine.
         optimizations
             The optimization passes done during query optimization.
 
