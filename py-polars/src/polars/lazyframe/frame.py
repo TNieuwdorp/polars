@@ -1364,7 +1364,8 @@ naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
             * ``"auto"``: use the engine set by
               :meth:`Config.set_engine_affinity <polars.Config.set_engine_affinity>`
               or the ``POLARS_ENGINE_AFFINITY`` environment variable, falling
-              back to ``"in-memory"`` if unset.
+              back to ``"in-memory"`` if unset (this default may change in
+              a future release).
             * ``"in-memory"``: use the in-memory engine, this is the default engine.
             * ``"streaming"``: use the streaming engine, which processes
               queries in batches, reducing memory pressure and often
@@ -1577,7 +1578,8 @@ naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
             * ``"auto"``: use the engine set by
               :meth:`Config.set_engine_affinity <polars.Config.set_engine_affinity>`
               or the ``POLARS_ENGINE_AFFINITY`` environment variable, falling
-              back to ``"in-memory"`` if unset.
+              back to ``"in-memory"`` if unset (this default may change in
+              a future release).
             * ``"in-memory"``: use the in-memory engine, this is the default engine.
             * ``"streaming"``: use the streaming engine, which processes
               queries in batches, reducing memory pressure and often
@@ -2131,7 +2133,8 @@ naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
             * ``"auto"``: use the engine set by
               :meth:`Config.set_engine_affinity <polars.Config.set_engine_affinity>`
               or the ``POLARS_ENGINE_AFFINITY`` environment variable, falling
-              back to ``"in-memory"`` if unset.
+              back to ``"in-memory"`` if unset (this default may change in
+              a future release).
             * ``"in-memory"``: use the in-memory engine, this is the default engine.
             * ``"streaming"``: use the streaming engine, which processes
               queries in batches, reducing memory pressure and often
@@ -2381,7 +2384,8 @@ naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
             * ``"auto"``: use the engine set by
               :meth:`Config.set_engine_affinity <polars.Config.set_engine_affinity>`
               or the ``POLARS_ENGINE_AFFINITY`` environment variable, falling
-              back to ``"in-memory"`` if unset.
+              back to ``"in-memory"`` if unset (this default may change in
+              a future release).
             * ``"in-memory"``: use the in-memory engine, this is the default engine.
             * ``"streaming"``: use the streaming engine, which processes
               queries in batches, reducing memory pressure and often
@@ -2587,7 +2591,8 @@ naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
             * ``"auto"``: use the engine set by
               :meth:`Config.set_engine_affinity <polars.Config.set_engine_affinity>`
               or the ``POLARS_ENGINE_AFFINITY`` environment variable, falling
-              back to ``"in-memory"`` if unset.
+              back to ``"in-memory"`` if unset (this default may change in
+              a future release).
             * ``"in-memory"``: use the in-memory engine, this is the default engine.
             * ``"streaming"``: use the streaming engine, which processes
               queries in batches, reducing memory pressure and often
