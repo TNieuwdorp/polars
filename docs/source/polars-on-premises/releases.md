@@ -1,4 +1,17 @@
-## 0.6.3 (latest) <small>- 1 July 2026</small>
+## 0.7.1 (latest) <small>- 3 August 2026</small>
+
+- `polars` [1.43.2](https://github.com/pola-rs/polars/releases/tag/py-1.43.2)
+- `polars-cloud` [0.10.0](https://github.com/pola-rs/polars-cloud-client/releases/tag/client-0.10.0)
+
+**Highlights**
+
+- Stream distributed query results through `sink_batches()`
+- New experimental `miso` query planner, opt-in via `distributed(planner="miso")`
+- Distributed `pl.collect_all()`
+- Experimental HDFS support for scans and Iceberg metadata
+- Anonymous query results can be deleted when `allow_delete` is configured
+
+## 0.6.3 <small>- 1 July 2026</small>
 
 - `polars` [1.42.1](https://github.com/pola-rs/polars/releases/tag/py-1.42.1)
 - `polars-cloud` [0.9.0](https://github.com/pola-rs/polars-cloud-client/releases/tag/client-0.9.0)
